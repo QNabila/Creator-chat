@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+
+# Backend/runtime files are intentionally local-only for now.
+main.py
+ingest.py
+retriever.py
+chat.py
+config.py
+style_profile.py
+requirements.txt
+tests/
+agent.md
+
+# Local generated data.
+chroma_store/
+tmp_subtitles/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.vtt
+*.srt
