@@ -52,6 +52,11 @@ This project can deploy the static frontend to Vercel, but the working ingestion
 - Do not add `GEMINI_API_KEY` to Vercel for the frontend-only preview.
 - The Vercel page is a UI preview unless it is connected to a hosted HTTPS backend.
 - For the full app locally, keep FastAPI running at `http://localhost:8001`.
+- If deploying with the Vercel CLI, use the lowercase project name:
+
+```bash
+npx vercel --prod --yes --name creator-chat
+```
 
 ## Notes
 
