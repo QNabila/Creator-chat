@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+yt-dlp
+sentence-transformers
+chromadb
+google-generativeai
+python-dotenv
+httpx
+pytest
+

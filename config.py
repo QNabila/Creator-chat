@@ -1,0 +1,11 @@
+CHUNK_SIZE = 500
+CHUNK_OVERLAP = 80
+TOP_K = 8
+MIN_RELEVANCE_SCORE = 0.35
+EMBED_MODEL = "all-MiniLM-L6-v2"
+GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_TEMPERATURE = 0.1
+CHROMA_PATH = "./chroma_store"
+STYLE_PROFILE_PATH = "./chroma_store/style_profiles.json"
+MAX_VIDEOS = 30
+SUBTITLE_TMP_PATH = "./tmp_subtitles"

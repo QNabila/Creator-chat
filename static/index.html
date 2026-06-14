@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creator Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="loaderView" class="loader-view">
+        <div class="load-panel">
+          <div>
+            <p class="eyebrow">Creator Chat</p>
+            <h1>Load a creator</h1>
+            <p class="intro-copy">The chat box appears after transcripts are loaded and embedded.</p>
+          </div>
+          <form id="ingestForm" class="creator-form">
+            <label>
+              YouTube channel URL
+              <input id="channelUrl" type="url" placeholder="https://www.youtube.com/@creator/videos" required />
+            </label>
+            <label>
+              Creator name
+              <input id="creatorName" type="text" placeholder="Alex Hormozi" required />
+            </label>
+            <button id="loadButton" type="submit">Load Creator</button>
+          </form>
+          <div id="overwriteBox" class="overwrite-box hidden">
+            <p id="overwriteMessage"></p>
+            <div class="button-row">
+              <button id="useExistingButton" type="button" class="secondary">Use Existing</button>
+              <button id="overwriteButton" type="button">Re-ingest</button>
+            </div>
+          </div>
+          <p id="statusText" class="status"></p>
+          <div id="progressPanel" class="progress-panel hidden" aria-live="polite">
+            <div class="progress-header">
+              <span id="progressStage">Starting</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p id="progressDetail" class="progress-detail"></p>
+          </div>
+          <div>
+            <div class="list-header">
+              <span>Loaded creators</span>
+              <button id="refreshCreatorsButton" type="button" class="text-button">Refresh</button>
+            </div>
+            <div id="creatorList" class="creator-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="chatView" class="chat-view hidden">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Active creator</p>
+            <h1 id="activeCreatorName"></h1>
+          </div>
+          <button id="switchCreatorButton" type="button" class="secondary">Switch Creator</button>
+        </header>
+        <div id="messages" class="messages"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="questionInput" type="text" placeholder="Ask from the loaded videos..." autocomplete="off" />
+          <button id="sendButton" type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
