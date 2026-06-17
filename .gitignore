@@ -11,3 +11,4 @@ tmp_subtitles/
 *.vtt
 *.srt
 
+.vercel
