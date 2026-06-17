@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp static/index.html dist/index.html && cp -R static dist/static"
+    "build": "rm -rf dist && mkdir -p dist && cp static/index.html dist/index.html && cp -R static dist/static"
   }
 }
