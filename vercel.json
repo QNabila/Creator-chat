@@ -1,20 +1,12 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "builds": [
+  "installCommand": "echo \"No install needed for static frontend\"",
+  "buildCommand": "mkdir -p dist && cp static/index.html dist/index.html && cp -R static dist/static",
+  "outputDirectory": "dist",
+  "rewrites": [
     {
-      "src": "static/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/static/index.html"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

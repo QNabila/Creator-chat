@@ -12,3 +12,4 @@ tmp_subtitles/
 *.srt
 
 .vercel
+dist/
