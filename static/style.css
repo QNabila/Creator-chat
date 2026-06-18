@@ -1,8 +1,8 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #000000;
-  color: #ffffff;
+  background: #eaf7ff;
+  color: #123047;
 }
 
 * {
@@ -12,7 +12,9 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #000000;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 34rem),
+    linear-gradient(135deg, #f8fcff 0%, #dff4ff 44%, #bfe5ff 100%);
 }
 
 button,
@@ -23,12 +25,13 @@ input {
 button {
   min-height: 44px;
   padding: 0 18px;
-  border: 2px solid #e50914;
+  border: 1px solid #2f8fce;
   border-radius: 8px;
-  background: #e50914;
+  background: #2f8fce;
   color: #ffffff;
   cursor: pointer;
   font-weight: 700;
+  box-shadow: 0 10px 24px rgba(47, 143, 206, 0.22);
 }
 
 button:disabled {
@@ -37,8 +40,10 @@ button:disabled {
 }
 
 .secondary {
-  background: #000000;
-  color: #ffffff;
+  border-color: #b7d9ee;
+  background: rgba(255, 255, 255, 0.76);
+  color: #123047;
+  box-shadow: none;
 }
 
 .text-button {
@@ -46,7 +51,8 @@ button:disabled {
   padding: 0;
   border: 0;
   background: transparent;
-  color: #e50914;
+  color: #1c7fb9;
+  box-shadow: none;
 }
 
 .app {
@@ -68,15 +74,17 @@ button:disabled {
   display: grid;
   gap: 22px;
   width: min(100%, 560px);
-  border: 2px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 8px;
-  background: #000000;
+  background: rgba(255, 255, 255, 0.74);
   padding: 28px;
+  box-shadow: 0 24px 70px rgba(76, 139, 180, 0.22);
+  backdrop-filter: blur(18px);
 }
 
 .eyebrow {
   margin: 0 0 8px;
-  color: #e50914;
+  color: #1c7fb9;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -85,14 +93,14 @@ button:disabled {
 
 h1 {
   margin: 0;
-  color: #ffffff;
+  color: #123047;
   font-size: clamp(1.6rem, 4vw, 2.35rem);
   letter-spacing: 0;
 }
 
 .intro-copy {
   margin: 12px 0 0;
-  color: #ffffff;
+  color: #45687d;
   line-height: 1.45;
 }
 
@@ -104,7 +112,7 @@ h1 {
 label {
   display: grid;
   gap: 8px;
-  color: #ffffff;
+  color: #24475d;
   font-size: 0.92rem;
   font-weight: 600;
 }
@@ -113,29 +121,30 @@ input {
   width: 100%;
   min-height: 46px;
   padding: 0 14px;
-  border: 2px solid #ffffff;
+  border: 1px solid #b7d9ee;
   border-radius: 8px;
-  background: #000000;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.86);
+  color: #123047;
 }
 
 input:focus {
-  border-color: #e50914;
+  border-color: #2f8fce;
+  box-shadow: 0 0 0 4px rgba(47, 143, 206, 0.16);
   outline: none;
 }
 
 .status {
   min-height: 22px;
   margin: 0;
-  color: #ffffff;
+  color: #45687d;
 }
 
 .progress-panel {
   display: grid;
   gap: 10px;
-  border: 2px solid #ffffff;
+  border: 1px solid #c7e3f5;
   border-radius: 8px;
-  background: #000000;
+  background: rgba(255, 255, 255, 0.62);
   padding: 14px;
 }
 
@@ -144,7 +153,7 @@ input:focus {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  color: #ffffff;
+  color: #123047;
   font-size: 0.92rem;
   font-weight: 700;
 }
@@ -152,22 +161,21 @@ input:focus {
 .progress-track {
   height: 10px;
   overflow: hidden;
-  border: 1px solid #ffffff;
   border-radius: 999px;
-  background: #000000;
+  background: #d7edf9;
 }
 
 .progress-fill {
   width: 0%;
   height: 100%;
   border-radius: inherit;
-  background: #e50914;
+  background: linear-gradient(90deg, #64c4f2, #2f8fce);
   transition: width 180ms ease-out;
 }
 
 .progress-detail {
   margin: 0;
-  color: #ffffff;
+  color: #45687d;
   font-size: 0.9rem;
   line-height: 1.45;
 }
@@ -175,9 +183,9 @@ input:focus {
 .overwrite-box {
   display: grid;
   gap: 12px;
-  border: 2px solid #e50914;
+  border: 1px solid #9ccfeb;
   border-radius: 8px;
-  background: #000000;
+  background: rgba(238, 248, 255, 0.86);
   padding: 16px;
 }
 
@@ -196,7 +204,7 @@ input:focus {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #45687d;
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -209,16 +217,20 @@ input:focus {
 .creator-list button {
   justify-content: flex-start;
   width: 100%;
-  background: #000000;
-  color: #ffffff;
+  border-color: #c7e3f5;
+  background: rgba(255, 255, 255, 0.72);
+  color: #123047;
   text-align: left;
+  box-shadow: none;
 }
 
 .chat-view {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
-  background: #000000;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.9), transparent 28rem),
+    linear-gradient(135deg, #f8fcff 0%, #dff4ff 46%, #c7eaff 100%);
 }
 
 .chat-header {
@@ -226,13 +238,14 @@ input:focus {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  border-bottom: 2px solid #ffffff;
-  background: #000000;
+  border-bottom: 1px solid rgba(47, 143, 206, 0.18);
+  background: rgba(255, 255, 255, 0.72);
   padding: 18px clamp(16px, 4vw, 36px);
+  backdrop-filter: blur(16px);
 }
 
 #activeCreatorName {
-  color: #e50914;
+  color: #1c7fb9;
   font-size: clamp(1.2rem, 3vw, 1.7rem);
 }
 
@@ -246,19 +259,21 @@ input:focus {
 
 .message {
   width: min(760px, 92%);
-  border: 2px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.76);
   border-radius: 8px;
   padding: 14px 16px;
-  background: #000000;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.76);
+  color: #123047;
   line-height: 1.55;
   animation: fade-in 120ms ease-out;
   overflow-wrap: anywhere;
+  box-shadow: 0 14px 36px rgba(76, 139, 180, 0.14);
 }
 
 .message.user {
   align-self: flex-end;
-  border-color: #e50914;
+  border-color: #91d1f0;
+  background: #e9f7ff;
 }
 
 .message.assistant {
@@ -266,7 +281,7 @@ input:focus {
 }
 
 .message.error {
-  border-color: #e50914;
+  border-color: #78bde1;
 }
 
 .sources {
@@ -274,7 +289,7 @@ input:focus {
 }
 
 .sources summary {
-  color: #e50914;
+  color: #1c7fb9;
   cursor: pointer;
   font-weight: 700;
 }
@@ -282,16 +297,17 @@ input:focus {
 .sources a {
   display: block;
   margin-top: 8px;
-  color: #ffffff;
+  color: #123047;
 }
 
 .chat-form {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 10px;
-  border-top: 2px solid #ffffff;
-  background: #000000;
+  border-top: 1px solid rgba(47, 143, 206, 0.18);
+  background: rgba(255, 255, 255, 0.72);
   padding: 16px clamp(16px, 4vw, 36px);
+  backdrop-filter: blur(16px);
 }
 
 @keyframes fade-in {

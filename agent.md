@@ -111,10 +111,9 @@ The UI has two states:
 
 Visual direction:
 
-- Use only black, white, and the red accent `#e50914`.
-- Background: `#000000`
-- Main text: `#ffffff`
-- Accent: `#e50914`
+- Use a soothing bright interface with a light blue gradient background.
+- Prefer airy translucent panels, navy text, and calm blue accents.
+- Keep contrast readable and avoid harsh dark themes for the main UI.
 - Font: Inter
 - Keep the app responsive and tool-like. Avoid decorative UI.
 
