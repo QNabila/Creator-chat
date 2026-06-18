@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "installCommand": "echo \"No install needed for static frontend\"",
-  "buildCommand": "rm -rf dist && mkdir -p dist && cp static/index.html dist/index.html && cp -R static dist/static",
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp static/index.html dist/index.html && cp static/style.css dist/style.css && cp static/app.js dist/app.js",
   "outputDirectory": "dist",
   "rewrites": [
     {

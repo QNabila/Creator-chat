@@ -1,6 +1,6 @@
 # Creator Chat
 
-Creator Chat is a local web app that loads a YouTube creator's recent transcripts and lets you chat with an assistant grounded only in that creator's videos.
+Creator Chat is a local web app that loads a YouTube creator's recent transcripts and lets you chat with an assistant that answers in that creator's voice.
 
 ## Prerequisites
 
@@ -45,6 +45,8 @@ The load screen shows the current ingestion stage and progress. The chat box ope
 
 If the creator already exists, the app asks whether to use the existing data or re-ingest the creator.
 
+The assistant uses a three-tier answer policy: direct transcript-backed answers when available, principled extension when the videos partially cover a topic, and clearly labeled extrapolation when the loaded videos do not directly cover it.
+
 ## Vercel Frontend Preview
 
 This project can deploy the static frontend to Vercel, but the working ingestion and chat backend still runs locally with FastAPI.
@@ -62,6 +64,6 @@ npx vercel --prod --yes --name creator-chat
 
 - The app uses `yt-dlp` and does not require a YouTube API key.
 - Auto-captions or subtitles must be enabled on the creator's videos.
-- Ingestion is capped at the latest 30 videos.
+- Ingestion is capped at the latest 40 videos.
 - ChromaDB data is stored in `./chroma_store`, so creators remain available after restarting the app.
 - The first run downloads the `all-MiniLM-L6-v2` embedding model, which is roughly 80 MB.

@@ -40,6 +40,16 @@ def index() -> FileResponse:
     return FileResponse("static/index.html")
 
 
+@app.get("/style.css")
+def root_style() -> FileResponse:
+    return FileResponse("static/style.css")
+
+
+@app.get("/app.js")
+def root_script() -> FileResponse:
+    return FileResponse("static/app.js")
+
+
 @app.post("/ingest")
 def ingest(request: IngestRequest) -> dict[str, Any]:
     if not request.channel_url.strip() or not request.creator_name.strip():

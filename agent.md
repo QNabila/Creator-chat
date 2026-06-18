@@ -2,7 +2,7 @@
 
 ## Project
 
-`creator-chat` is a local full-stack web app for loading a YouTube creator's latest 30 videos and chatting with an AI assistant that answers strictly from that creator's public YouTube content.
+`creator-chat` is a local full-stack web app for loading a YouTube creator's latest 40 videos and chatting with an AI assistant that answers in that creator's voice using retrieved transcripts and clearly labeled extrapolation when needed.
 
 The target stack is:
 
@@ -38,7 +38,7 @@ creator-chat/
 ## Core Behavior
 
 - Users paste a YouTube channel URL and creator name.
-- The app fetches transcripts from the latest 30 videos with `yt-dlp`.
+- The app fetches transcripts from the latest 40 videos with `yt-dlp`.
 - Captions should prefer English and fall back to auto-generated subtitles.
 - Transcript text must be cleaned before storage:
   - Strip timestamps and caption markup.
@@ -47,8 +47,8 @@ creator-chat/
 - Chunks must preserve metadata for `video_id`, `video_title`, `video_url`, and publish date when available.
 - Store embeddings in persistent ChromaDB at `CHROMA_PATH`; do not use in-memory storage.
 - Retrieval should use the same local embedding model as ingestion.
-- Chat answers must be grounded only in retrieved transcript chunks.
-- If the answer is not present in retrieved content, return the configured not-found response rather than using outside knowledge.
+- Chat answers should use retrieved transcript chunks first.
+- If retrieved content is partial or missing, the assistant should still answer in the creator's voice while clearly labeling extrapolation.
 
 ## Backend Contract
 
@@ -78,21 +78,17 @@ TOP_K = 8
 EMBED_MODEL = "all-MiniLM-L6-v2"
 GEMINI_MODEL = "gemini-2.5-flash"
 CHROMA_PATH = "./chroma_store"
-MAX_VIDEOS = 30
+MAX_VIDEOS = 40
 ```
 
 ## Gemini Prompt Rules
 
-Gemini should receive a strict system instruction that says the assistant:
+Gemini should receive a system instruction that says the assistant:
 
-- Answers only from the provided transcript chunks.
-- Does not use outside knowledge.
-- Mirrors the creator's teaching style and frameworks only when visible in the content.
-- Uses this exact fallback when content is missing:
-
-```text
-I couldn't find [creator_name] covering this in the loaded videos.
-```
+- Answers from retrieved transcript chunks when they clearly cover the question.
+- Extends from the creator's visible principles and frameworks when coverage is partial.
+- Still answers in the creator's voice when content is missing, but opens with one sentence acknowledging extrapolation.
+- Never invents direct quotes, video titles, statistics, events, or claims as if they were explicitly in the videos.
 
 ## Frontend Expectations
 
@@ -160,4 +156,4 @@ The first ingestion run will download the local embedding model, which is roughl
 - Keep collection names stable and derived from creator names or channel identifiers.
 - Avoid global mutable request state except for lightweight app configuration.
 - Preserve source metadata through ingestion, retrieval, and chat response formatting.
-- Add tests where behavior is easy to isolate, especially transcript cleaning, chunking, and prompt fallback behavior.
+- Add tests where behavior is easy to isolate, especially transcript cleaning, chunking, and three-tier prompt behavior.
